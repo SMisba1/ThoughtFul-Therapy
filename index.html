@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughtful Therapy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Thoughtful Therapy</h1>
+        <nav>
+            <ul>
+                <li><a href="#gaming">Gaming Section</a></li>
+                <li><a href="#exercise" onclick="toggleExercisePoses()">Exercise Section</a></li>
+                <li><a href="#health-tracking" onclick="toggleHealthTracking()">Health Tracking</a></li>
+                <li><a href="#chatbot" onclick="toggleChatbot()">Chatbot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="gaming">
+        <h2>Gaming Section for People with Depression</h2>
+        <p>Engage in simple and easy games designed to uplift your mood and relax.</p>
+        <button onclick="showGames()">View Games</button>
+        <div id="games" style="display:none;">
+            <h3>Available Games</h3>
+            <ul>
+                <li><a href="https://flappybird.io" target="_blank">Game 1: Flappy Bird Clone</a></li>
+                <li><a href="https://play2048.co" target="_blank">Game 2: 2048</a></li>
+                <li><a href="https://tetris.com/play-tetris" target="_blank">Game 3: Tetris</a></li>
+                <li><a href="https://crossyroad.com" target="_blank">Game 4: Crossy Road</a></li>
+                <li><a href="https://www.solitaire.com" target="_blank">Game 5: Online Solitaire</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="exercise">
+        <h2>Exercise Section for Older Adults</h2>
+        <p>Select an exercise, then set a start and stop time.</p>
+        <select id="exercise-selector">
+            <option value="Chair Pose">Chair Pose</option>
+            <option value="Wall Push-Up">Wall Push-Up</option>
+            <option value="Standing Leg Lift">Standing Leg Lift</option>
+            <option value="Seated Torso Twist">Seated Torso Twist</option>
+            <option value="Neck Stretch">Neck Stretch</option>
+        </select>
+
+        <div>
+            <label for="start-time">Start Time:</label>
+            <input type="time" id="start-time">
+            <label for="stop-time">Stop Time:</label>
+            <input type="time" id="stop-time">
+            <button onclick="startExercise()">Start Exercise</button>
+            <button onclick="pauseExercise()" id="pause-button" style="display:none;">Pause</button>
+            <button onclick="resumeExercise()" id="resume-button" style="display:none;">Resume</button>
+        </div>
+
+        <section id="Health Tracking">
+            <h2>Remainders for water and Medication</h2>
+            <p>Set Remainders to take Medication</p>
+            <select id="exercise-selector">
+
+        <div id="timer" style="display:none;">
+            <h3>Timer: <span id="time-display">00:00</span></h3>
+        </div>
+
+        <div id="exercise-poses" class="exercise-poses" style="display: none;">
+            <div class="pose">
+                <img src="chair.jpg" alt="Chair Pose">
+                <h3>Chair Pose</h3>
+                <p>Stand in front of a chair. Lower your body as if you are going to sit down. Hold for 10 seconds.</p>
+            </div>
+            <div class="pose">
+                <img src="wall_push_up.jpg" alt="Wall Push-Up">
+                <h3>Wall Push-Up</h3>
+                <p>Stand an arm's length from a wall. Place your palms on the wall and bend your elbows to lean in, then push back out.</p>
+            </div>
+            <div class="pose">
+                <img src="standing_leg_lift.jpg" alt="Standing Leg Lift">
+                <h3>Standing Leg Lift</h3>
+                <p>Stand tall and lift one leg to the side. Hold for a few seconds and switch to the other leg.</p>
+            </div>
+            <div class="pose">
+                <img src="seated_torso_twist.jpg" alt="Seated Torso Twist">
+                <h3>Seated Torso Twist</h3>
+                <p>Sit in a chair, place your right hand on the back of the chair, and twist your torso to the right. Hold for 10 seconds, then switch sides.</p>
+            </div>
+            <div class="pose">
+                <img src="neck_stretch.jpg" alt="Neck Stretch">
+                <h3>Neck Stretch</h3>
+                <p>Sit or stand up straight. Gently tilt your head to one side, holding for 10 seconds. Switch sides.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="health-tracking" style="display:none;">
+        <h2>Health Tracking</h2>
+        <p>Set reminders to take care of your health.</p>
+        <div>
+            <label><input type="checkbox" value="Drink Water"> Drink Water</label><br>
+            <label><input type="checkbox" value="Take Medication"> Take Medication</label><br>
+            <label><input type="checkbox" value="Stretch"> Stretch</label><br>
+        </div>
+        <div>
+            <label for="alarm-time">Alarm Time:</label>
+            <input type="time" id="alarm-time" step="1">
+            <label for="alarm-seconds">Seconds:</label>
+            <input type="number" id="alarm-seconds" min="0" max="59" value="0">
+            <button onclick="setAlarms()">Set Alarm(s)</button>
+            <div id="alarm-message" style="display:none;">Alarm set for <span id="alarm-time-display"></span></div>
+        </div>
+    </section>
+
+    <section id="chatbot" style="display:none;">
+        <h2>Chatbot</h2>
+        <div id="chat-container">
+            <div id="chat-log"></div>
+            <input type="text" id="user-input" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
